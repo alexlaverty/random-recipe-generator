@@ -34,20 +34,30 @@ def filter_ingredient_list(df, include_ingredients, exclude_ingredients):
 def multiply_columns(column, weights):
     return column * weights
 
+def save_recipe(df, score):
+    now = datetime.datetime.now()
+    timestamp = now.strftime('%m%d%y%H%M%S')
+    df.to_csv( "recipes/" + str(score) + "_" + timestamp + ".csv")
+
 def generate_random_recipes(list_of_ingredients):
     for i in range(recipe_generation_attempts):
         print(f"====== Random Recipe Number : {i} ========")
         number_of_ingredients = random.randint(5,10)
         print(f"Number of Ingredients : {number_of_ingredients}")
         ingredients_df = list_of_ingredients.sample(n = number_of_ingredients)
-        ingredients_df["amount"] = 0
-        ingredients_df['amount'] = ingredients_df['amount'].apply(lambda x: np.random.randint(config['ingredient_max_grams']))
-        ingredients_df[config['included_micronutrients']] = ingredients_df[config['included_micronutrients']].apply(lambda x: multiply_columns(x, ingredients_df['amount']))
+        ingredients_df.insert(1,'Amount (g)', 0)
+        #ingredients_df['Amount (g)'] = 0
+        ingredients_df['Amount (g)'] = ingredients_df['Amount (g)'].apply(lambda x: np.random.randint(config['ingredient_max_grams']))
+        #print(ingredients_df)
+        ingredients_df[config['included_micronutrients']] = ingredients_df[config['included_micronutrients']].apply(lambda x: multiply_columns(x, (ingredients_df['Amount (g)'] / 100) ))
         ingredients_df = ingredients_df.append(ingredients_df.sum(numeric_only=True), ignore_index=True)
         ingredients_df.index += 1 
         print(ingredients_df)
         recipe_score = scoring.score_recipe(ingredients_df)
         print(f"RECIPE SCORE : {recipe_score}")
+        minimum_recipe_score = int(config['minimum_recipe_score'])
+        if recipe_score >= minimum_recipe_score:
+            save_recipe(ingredients_df, recipe_score)
 
 def rename_columns(df):
     renamed_columns = df.rename(

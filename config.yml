@@ -1,7 +1,7 @@
 ---
 minimum_recipe_score: 5
 
-ingredient_max_grams: 6 # * 100
+ingredient_max_grams: 500
 
 include_ingredients:
   - fresh, boiled, drained

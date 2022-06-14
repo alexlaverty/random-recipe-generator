@@ -14,7 +14,7 @@ def score_recipe(df):
             micronutrient_max = nutrient_target['max']
             if micronutrient_total >= micronutrient_min and micronutrient_total <= micronutrient_max:
                 score += 1    
-    return score
+    return int(score)
 
 
 # print(f"SCORE : {score}")
