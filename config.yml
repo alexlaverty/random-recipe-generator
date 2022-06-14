@@ -1,3 +1,8 @@
+---
+minimum_recipe_score: 5
+
+ingredient_max_grams: 6 # * 100
+
 include_ingredients:
   - fresh, boiled, drained
   - Oil, olive
@@ -7,8 +12,109 @@ exclude_ingredients:
   - liver
   - milk
   - taro
+  - cassava
 
-biotin:
+included_micronutrients:
+  - Protein (g)
+  - Fat, total (g)
+  - Biotin (B7) (ug)
+  - Calcium (Ca) (mg)
+  - Chloride (Cl) (mg)
+  - Chromium (Cr) (ug)
+  - Cobalamin (B12) (ug)
+  - Cobalt (Co) (ug)
+  - Copper (Cu) (mg)
+  - Fluoride (F) (ug)
+  - Folic acid (ug)
+  - Iodine (I) (ug)
+  - Iron (Fe) (mg)
+  - Magnesium (Mg) (mg)
+  - Manganese (Mn) (mg)
+  - Niacin (B3) (mg)
+  - Pantothenic acid (B5) (mg)
+  - Phosphorus (P) (mg)
+  - Potassium (K) (mg)
+  - Pyridoxine (B6) (mg)
+  - Riboflavin (B2) (mg)
+  - Selenium (Se) (ug)
+  - Thiamin (B1) (mg)
+  - Total dietary fibre (g)
+  - Vitamin A retinol equivalents (ug)
+  - Vitamin C (mg)
+  - Vitamin D3 equivalents (ug)
+  - Vitamin E (mg)
+  - Zinc (Zn) (mg)
+
+
+
+nutrient_targets:
+  - micronutrient: Protein (g)
+    min: 50
+    max: 150
+  - micronutrient: Fat, total (g)
+    min: 50
+    max: 150
+  - micronutrient: Biotin (B7) (ug)
+  - micronutrient: Calcium (Ca) (mg)
+    min: 1
+    max: 2.5
+  - micronutrient: Chloride (Cl) (mg)
+    min: 2.3
+    max: 3.6
+  - micronutrient: Chromium (Cr) (ug)
+    min: 35
+    max: 0
+  - micronutrient: Cobalamin (B12) (ug)
+  - micronutrient: Cobalt (Co) (ug)
+  - micronutrient: Copper (Cu) (mg)
+    min: 0.9
+    max: 10
+  - micronutrient: Fluoride (F) (ug)
+  - micronutrient: Folic acid (ug)
+    min: 400
+    max: 1000
+  - micronutrient: Iodine (I) (ug)
+    min: 150
+    max: 1100
+  - micronutrient: Iron (Fe) (mg)
+    min: 8
+    max: 45
+  - micronutrient: Magnesium (Mg) (mg)
+    min: 420
+    max: 0
+  - micronutrient: Manganese (Mn) (mg)
+    min: 2.3
+    max: 11
+  - micronutrient: Niacin (B3) (mg)
+    min: 16
+    max: 35
+  - micronutrient: Pantothenic acid (B5) (mg)
+    min: 5
+    max: 0
+  - micronutrient: Phosphorus (P) (mg)
+    min: 0.7
+    max: 4
+  - micronutrient: Potassium (K) (mg)
+    min: 3.5
+    max: 0
+  - micronutrient: Pyridoxine (B6) (mg)
+    min: 1.3
+    max: 100
+  - micronutrient: Riboflavin (B2) (mg)
+    min: 1.3
+    max: 0
+  - micronutrient: Selenium (Se) (ug)
+  - micronutrient: Thiamin (B1) (mg)
+  - micronutrient: Total dietary fibre (g)
+  - micronutrient: Vitamin A retinol equivalents (ug)
+  - micronutrient: Vitamin C (mg)
+  - micronutrient: Vitamin D3 equivalents (ug)
+  - micronutrient: Vitamin E (mg)
+  - micronutrient: Zinc (Zn) (mg)
+    min: 11
+    max: 40
+
+Protein (g):
   min: 30
   max: 0
 
