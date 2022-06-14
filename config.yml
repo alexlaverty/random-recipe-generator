@@ -1,7 +1,7 @@
 ---
 recipe_generation_attempts: 10000
 
-minimum_recipe_score: 20
+minimum_recipe_score: 21
 
 ingredient_max_grams: 500
 
@@ -47,11 +47,13 @@ included_micronutrients:
   - Energy with dietary fibre, equated (kJ)
   - Protein (g)
   - Fat, total (g)
+  - Total dietary fibre (g)
+  - Sodium (Na) (mg)
+  - Cobalamin (B12) (ug)
   - Biotin (B7) (ug)
   - Calcium (Ca) (mg)
   - Chloride (Cl) (mg)
   - Chromium (Cr) (ug)
-  - Cobalamin (B12) (ug)
   - Cobalt (Co) (ug)
   - Copper (Cu) (mg)
   - Fluoride (F) (ug)
@@ -68,7 +70,6 @@ included_micronutrients:
   - Riboflavin (B2) (mg)
   - Selenium (Se) (ug)
   - Thiamin (B1) (mg)
-  - Total dietary fibre (g)
   - Vitamin A retinol equivalents (ug)
   - Vitamin C (mg)
   - Vitamin D3 equivalents (ug)
@@ -146,6 +147,9 @@ nutrient_targets:
   - micronutrient: Selenium (Se) (ug)
     min: 55
     max: 200
+  - micronutrient: Sodium (Na) (mg)
+    min: 200
+    max: 2000
   - micronutrient: Thiamin (B1) (mg)
     min: 1.2
     max: 0
