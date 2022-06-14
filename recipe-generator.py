@@ -49,7 +49,7 @@ def generate_random_recipes(list_of_ingredients):
         ingredients_df.insert(2,'Calories', 0)
         ingredients_df['Amount (g)'] = ingredients_df['Amount (g)'].apply(lambda x: np.random.randint(config['ingredient_max_grams']))
         ingredients_df[config['included_micronutrients']] = ingredients_df[config['included_micronutrients']].apply(lambda x: multiply_columns(x, (ingredients_df['Amount (g)'] / 100) ))
-        ingredients_df['Calories'] = ingredients_df['Energy with dietary fibre, equated (kJ)'] / 4.184
+        ingredients_df['Calories'] = round(ingredients_df['Energy with dietary fibre, equated (kJ)'] / 4.184, 0)
         ingredients_df = ingredients_df.append(ingredients_df.sum(numeric_only=True), ignore_index=True)
         ingredients_df.index += 1 
         print(ingredients_df)
