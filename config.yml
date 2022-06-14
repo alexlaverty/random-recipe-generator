@@ -1,12 +1,36 @@
 ---
-minimum_recipe_score: 15
+recipe_generation_attempts: 10000
+
+minimum_recipe_score: 20
 
 ingredient_max_grams: 500
 
 include_ingredients:
+  - Capsicum, red, fresh, raw
+  - Carrot, mature, peeled, fresh
+  - Chicken, breast, lean flesh
+  - Egg, chicken, yolk, hard-boiled
   - fresh, boiled, drained
+  - fresh, raw
+  - Lime, native, fruit
+  - Mussel, blue, steamed
+  - Nut, almond, with skin, roasted, unsalted
+  - Nut, brazil, raw or blanched, unsalted
+  - Nut, cashew, roasted, unsalted
+  - Nut, peanut, without skin, roasted
   - Oil, olive
+  - Oyster, Pacific, aquacultured, raw
+  - Paprika, dry powder
+  - Pork, fillet
+  - Salmon
   - Sardines
+  - Seaweed, nori, dried
+  - Seed, pumpkin, hulled & dried
+  - Seed, sunflower
+  - Spread, yeast, vegemite
+  - Tahini, sesame seed pulp
+  - Tomato, sundried
+
 
 exclude_ingredients:
   - liver
@@ -132,151 +156,3 @@ nutrient_targets:
   - micronutrient: Zinc (Zn) (mg)
     min: 11
     max: 40
-
-Protein (g):
-  min: 30
-  max: 0
-
-calcium:
-  min: 1
-  max: 2.5
-
-calories:
-  min: 2000
-  max: 0
-
-carbs:
-  min: 250
-  max: 0
-
-chloride:
-  min: 2.3
-  max: 3.6
-
-cholesterol:
-  min: 0
-  max: 0
-
-choline:
-  min: 550
-  max: 3500
-
-chromium:
-  min: 35
-  max: 0
-
-copper:
-  min: 0.9
-  max: 10
-
-fat:
-  min: 65
-  max: 0
-
-fiber:
-  min: 28
-  max: 0
-
-folate:
-  min: 400
-  max: 1000
-
-iodine:
-  min: 150
-  max: 1100
-
-iron:
-  min: 8
-  max: 45
-
-maganese:
-  min: 2.3
-  max: 11
-
-magnesium:
-  min: 420
-  max: 0
-
-molybdenum:
-  min: 45
-  max: 2000
-
-niacin:
-  min: 16
-  max: 35
-
-omega_3:
-  min: 1.6
-  max: 0
-
-omega_6:
-  min: 17
-  max: 0
-
-panthothenic:
-  min: 5
-  max: 0
-
-phosphorus:
-  min: 0.7
-  max: 4
-
-potassium:
-  min: 3.5
-  max: 0
-
-protein:
-  min: 85
-  max: 0
-
-riboflavin:
-  min: 1.3
-  max: 0
-
-selinium:
-  min: 55
-  max: 400
-
-sodium:
-  min: 1.5
-  max: 2.3
-
-sulfur:
-  min: 2
-  max: 0
-
-thiamin:
-  min: 1.2
-  max: 0
-
-vitamin_a:
-  min: 3000
-  max: 10000
-
-vitamin_b12:
-  min: 2.4
-  max: 0
-
-vitamin_b6:
-  min: 1.3
-  max: 100
-
-vitamin_c:
-  min: 90
-  max: 2000
-
-vitamin_d:
-  min: 600
-  max: 4000
-
-vitamin_e:
-  min: 20
-  max: 1000
-
-vitamin_k:
-  min: 120
-  max: 0
-
-zinc:
-  min: 11
-  max: 40
