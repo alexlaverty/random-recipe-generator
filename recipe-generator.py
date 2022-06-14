@@ -10,7 +10,8 @@ recipe_folder_path = 'recipes'
 nutrition_spreadsheet_path = "Release 2 - Nutrient file.xlsx"
 
 rename_column_dict = { 
-    'Available carbohydrate, without sugar alcohols (g)': 'carbs'
+    'Available carbohydrate, without sugar alcohols (g)': 'carbs',
+    # 'Energy with dietary fibre, equated (kJ)': 'kilojoules'
     }
 
 
@@ -42,7 +43,9 @@ def generate_random_recipes(list_of_ingredients):
     recipe_generation_attempts = config['recipe_generation_attempts']
     for i in range(recipe_generation_attempts):
         print(f"====== Random Recipe Number : {i} ========")
-        number_of_ingredients = random.randint(5,10)
+        number_of_ingredients_min = config['number_of_ingredients']["min"]
+        number_of_ingredients_max = config['number_of_ingredients']["max"]
+        number_of_ingredients = random.randint(number_of_ingredients_min, number_of_ingredients_max)
         print(f"Number of Ingredients : {number_of_ingredients}")
         ingredients_df = list_of_ingredients.sample(n = number_of_ingredients)
         ingredients_df.insert(1,'Amount (g)', 0)

@@ -5,6 +5,10 @@ minimum_recipe_score: 20
 
 ingredient_max_grams: 500
 
+number_of_ingredients:
+  min: 5
+  max: 10
+
 include_ingredients:
   - Capsicum, red, fresh, raw
   - Carrot, mature, peeled, fresh
@@ -83,6 +87,8 @@ nutrient_targets:
     min: 50
     max: 150
   - micronutrient: Biotin (B7) (ug)
+    min: 20
+    max: 0
   - micronutrient: Calcium (Ca) (mg)
     min: 1
     max: 2.5
@@ -96,10 +102,14 @@ nutrient_targets:
     min: 2.4
     max: 0
   - micronutrient: Cobalt (Co) (ug)
+    min: 5
+    max: 0
   - micronutrient: Copper (Cu) (mg)
     min: 0.9
     max: 10
   - micronutrient: Fluoride (F) (ug)
+    min: 3
+    max: 0
   - micronutrient: Folic acid (ug)
     min: 400
     max: 1000
@@ -135,7 +145,7 @@ nutrient_targets:
     max: 0
   - micronutrient: Selenium (Se) (ug)
     min: 55
-    max: 400
+    max: 200
   - micronutrient: Thiamin (B1) (mg)
     min: 1.2
     max: 0
