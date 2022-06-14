@@ -36,7 +36,7 @@ def multiply_columns(column, weights):
 
 def save_recipe(df, score):
     now = datetime.datetime.now()
-    timestamp = now.strftime('%m%d%y%H%M%S')
+    timestamp = now.strftime('%m%d%y%H%M%S%f')
     df.to_csv( "recipes/" + str(score) + "_" + timestamp + ".csv")
 
 def generate_random_recipes(list_of_ingredients):
@@ -46,10 +46,13 @@ def generate_random_recipes(list_of_ingredients):
         print(f"Number of Ingredients : {number_of_ingredients}")
         ingredients_df = list_of_ingredients.sample(n = number_of_ingredients)
         ingredients_df.insert(1,'Amount (g)', 0)
+        ingredients_df.insert(2,'Calories', 0)
         #ingredients_df['Amount (g)'] = 0
         ingredients_df['Amount (g)'] = ingredients_df['Amount (g)'].apply(lambda x: np.random.randint(config['ingredient_max_grams']))
-        #print(ingredients_df)
+         #print(ingredients_df)
         ingredients_df[config['included_micronutrients']] = ingredients_df[config['included_micronutrients']].apply(lambda x: multiply_columns(x, (ingredients_df['Amount (g)'] / 100) ))
+        #ingredients_df['Calories'] = ingredients_df['Calories'].apply(lambda x: ingredients_df['Energy with dietary fibre, equated (kJ)'] / 4.184)
+        ingredients_df['Calories'] = ingredients_df['Energy with dietary fibre, equated (kJ)'] / 4.184
         ingredients_df = ingredients_df.append(ingredients_df.sum(numeric_only=True), ignore_index=True)
         ingredients_df.index += 1 
         print(ingredients_df)
