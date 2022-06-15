@@ -20,6 +20,7 @@ def save_recipe(html, score):
     now = datetime.datetime.now()
     timestamp = now.strftime('%m%d%y%H%M%S%f')
     recipe_file_name = str(score) + "_" + timestamp 
+    print(f"Saving Recipe : {recipe_file_name}")
     text_file = open("recipes/" + recipe_file_name + ".html", "w")
     text_file.write(html)
     text_file.close()
