@@ -48,6 +48,7 @@ def multiply_columns(column, weights):
 
 
 def generate_random_recipes(list_of_ingredients):
+    print("Generating Recipes...")
     recipe_generation_attempts = config['recipe_generation_attempts']
     for i in range(recipe_generation_attempts):
         number_of_ingredients_min = config['number_of_ingredients']["min"]
@@ -72,13 +73,15 @@ def rename_columns(df):
     return renamed_columns
 
 if __name__ == "__main__":
+    print("Starting Random Recipe Generator!")
     config = common.config()
     create_recipe_folder()
     ingredient_list = get_nutrition_data()
     print(f"Number of rows in Nutrition Database : {len(ingredient_list.index)}")
     filtered_ingredient_list = filter_ingredient_list(ingredient_list, config['include_ingredients'], config['exclude_ingredients'])
     print(f"Number of rows after filtering : {len(filtered_ingredient_list.index)}")
-
+    print(f"Minimum Recipe Score : {config['minimum_recipe_score']}")
+    print(f"Number of Recipe Generations : {config['recipe_generation_attempts']}")
     filtered_ingredient_list.rename(columns=rename_column_dict, inplace=True)
     filtered_ingredient_list = filtered_ingredient_list[["Food Name"] + config['included_micronutrients']]
     generate_random_recipes(filtered_ingredient_list)
