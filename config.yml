@@ -1,9 +1,9 @@
 ---
 recipe_generation_attempts: 1000000
 
-minimum_recipe_score: 10
+minimum_recipe_score: 26
 
-ingredient_max_grams: 500
+ingredient_max_grams: 1000
 
 number_of_ingredients:
   min: 5
@@ -14,7 +14,7 @@ include_ingredients:
   - Carrot, mature, peeled, fresh
   - Chicken, breast, lean flesh
   - dried, boiled, drained
-  - Egg, chicken, yolk, hard-boiled
+  - Egg, chicken, whole, hard-boiled
   - fresh, boiled, drained
   - fresh, raw
   - Lime, native, fruit
@@ -26,7 +26,11 @@ include_ingredients:
   - Oil, olive
   - Oyster, Pacific, aquacultured, raw
   - Paprika, dry powder
+  - peeled, raw
   - Pork, fillet
+  - Porridge, rolled oats, prepared with water
+  - Rice, brown, boiled, no added salt
+  - Rice, white, boiled or rice cooker, no added salt
   - Salmon
   - Sardines
   - Seaweed, nori, dried
@@ -34,9 +38,11 @@ include_ingredients:
   - Seed, sunflower
   - Spread, yeast, vegemite
   - Tahini, sesame seed pulp
-  - Tomato, sundried
-  - unpeeled, raw
   - tofu
+  - Tomato, sundried
+
+
+
 
 
 exclude_ingredients:
@@ -94,11 +100,11 @@ nutrient_targets:
     min: 20
     max: 0
   - micronutrient: Calcium (Ca) (mg)
-    min: 1
-    max: 2.5
+    min: 1000
+    max: 2500
   - micronutrient: Chloride (Cl) (mg)
-    min: 2.3
-    max: 3.6
+    min: 2300
+    max: 3600
   - micronutrient: Chromium (Cr) (ug)
     min: 35
     max: 0
@@ -139,8 +145,8 @@ nutrient_targets:
     min: 5
     max: 0
   - micronutrient: Phosphorus (P) (mg)
-    min: 0.7
-    max: 4
+    min: 700
+    max: 4000
   - micronutrient: Potassium (K) (mg)
     min: 3.5
     max: 0
