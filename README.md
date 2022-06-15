@@ -16,3 +16,7 @@ To run the script :
 pip3 install numpy pandas
 python3 recipe-generator.py
 ```
+
+See a list of randomly generated recipes here :
+
+<https://alexlaverty.github.io/random-recipe-generator/recipes>
