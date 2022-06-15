@@ -1,7 +1,7 @@
 ---
-recipe_generation_attempts: 10000
+recipe_generation_attempts: 1000000
 
-minimum_recipe_score: 21
+minimum_recipe_score: 10
 
 ingredient_max_grams: 500
 
@@ -13,6 +13,7 @@ include_ingredients:
   - Capsicum, red, fresh, raw
   - Carrot, mature, peeled, fresh
   - Chicken, breast, lean flesh
+  - dried, boiled, drained
   - Egg, chicken, yolk, hard-boiled
   - fresh, boiled, drained
   - fresh, raw
@@ -35,6 +36,7 @@ include_ingredients:
   - Tahini, sesame seed pulp
   - Tomato, sundried
   - unpeeled, raw
+  - tofu
 
 
 exclude_ingredients:
@@ -70,6 +72,7 @@ included_micronutrients:
   - Riboflavin (B2) (mg)
   - Selenium (Se) (ug)
   - Thiamin (B1) (mg)
+  - Total long chain omega 3 fatty acids, equated (mg)
   - Vitamin A retinol equivalents (ug)
   - Vitamin C (mg)
   - Vitamin D3 equivalents (ug)
@@ -129,6 +132,9 @@ nutrient_targets:
   - micronutrient: Niacin (B3) (mg)
     min: 16
     max: 35
+  - micronutrient: Total long chain omega 3 fatty acids, equated (mg)
+    min: 1600
+    max: 5000
   - micronutrient: Pantothenic acid (B5) (mg)
     min: 5
     max: 0
