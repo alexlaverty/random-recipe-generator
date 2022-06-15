@@ -50,11 +50,9 @@ def multiply_columns(column, weights):
 def generate_random_recipes(list_of_ingredients):
     recipe_generation_attempts = config['recipe_generation_attempts']
     for i in range(recipe_generation_attempts):
-        #print(f"====== Random Recipe Number : {i} ========")
         number_of_ingredients_min = config['number_of_ingredients']["min"]
         number_of_ingredients_max = config['number_of_ingredients']["max"]
         number_of_ingredients = random.randint(number_of_ingredients_min, number_of_ingredients_max)
-        #print(f"Number of Ingredients : {number_of_ingredients}")
         ingredients_df = list_of_ingredients.sample(n = number_of_ingredients)
         ingredients_df.insert(1,'Amount (g)', 0)
         ingredients_df.insert(2,'Calories', 0)
@@ -62,10 +60,7 @@ def generate_random_recipes(list_of_ingredients):
         ingredients_df[config['included_micronutrients']] = ingredients_df[config['included_micronutrients']].apply(lambda x: multiply_columns(x, (ingredients_df['Amount (g)'] / 100) ))
         ingredients_df['Calories'] = round(ingredients_df['Energy with dietary fibre, equated (kJ)'] / 4.184, 0)
         ingredients_df = ingredients_df.append(ingredients_df.sum(numeric_only=True), ignore_index=True)
-        #ingredients_df = pd.concat([ingredients_df, ingredients_df.sum(numeric_only=True)])
-
         ingredients_df.index += 1 
-        #print(ingredients_df)
         recipe_score = scoring.score_recipe(ingredients_df)
 
 

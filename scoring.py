@@ -84,7 +84,7 @@ def get_nutrient_html(df):
                 if nutrient_max == 0 or int(columnData.values[0]) <= nutrient_max:
                     td_color = "#90ee90"  
 
-        html += f"<tr><td bgcolor=\"{td_color}\">{columnName}</td><td bgcolor=\"{td_color}\">{nutrient_min}</td><td bgcolor=\"{td_color}\">{round(columnData.values[0],0)}</td><td bgcolor=\"{td_color}\">{nutrient_max}</td></tr>"
+        html += f"<tr><td bgcolor=\"{td_color}\">{columnName}</td><td bgcolor=\"{td_color}\">{nutrient_min}</td><td bgcolor=\"{td_color}\">{round(columnData.values[0],2)}</td><td bgcolor=\"{td_color}\">{nutrient_max}</td></tr>"
     html += "</table>"
     return html
 
@@ -122,7 +122,7 @@ def score_recipe(df):
 
         # html = df_style.format().set_table_styles([cell_hover, headers])
         # html = html.render()
-        html = css + "<center>" + ingredients_html + recipe_totals_html + "/<center>"
+        html = css + "<center>" + ingredients_html + recipe_totals_html + "<hr><b>Raw Data</b><br>"+ df.to_html() +"/<center>"
         if score >= minimum_recipe_score:
             save_recipe(html, score)
 

@@ -1,7 +1,7 @@
 ---
 recipe_generation_attempts: 1000000
 
-minimum_recipe_score: 26
+minimum_recipe_score: 25
 
 ingredient_max_grams: 500
 
