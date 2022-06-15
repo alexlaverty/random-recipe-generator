@@ -75,7 +75,10 @@ if __name__ == "__main__":
     config = common.config()
     create_recipe_folder()
     ingredient_list = get_nutrition_data()
+    print(f"Number of rows in Nutrition Database : {len(ingredient_list.index)}")
     filtered_ingredient_list = filter_ingredient_list(ingredient_list, config['include_ingredients'], config['exclude_ingredients'])
+    print(f"Number of rows after filtering : {len(filtered_ingredient_list.index)}")
+
     filtered_ingredient_list.rename(columns=rename_column_dict, inplace=True)
     filtered_ingredient_list = filtered_ingredient_list[["Food Name"] + config['included_micronutrients']]
     generate_random_recipes(filtered_ingredient_list)

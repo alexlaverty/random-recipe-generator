@@ -4,25 +4,6 @@ import pandas as pd
 
 config = common.config()
 
-cell_hover = {  # for row hover use <tr> instead of <td>
-    'selector': 'td:hover',
-    'props': [('background-color', '#ffffb3')]
-}
-# index_names = {
-#     'selector': '.index_name',
-#     'props': 'font-style: italic; color: darkgrey; font-weight:normal;'
-# }
-headers = {
-    'selector': 'th:not(.index_name)',
-    'props': 'background-color: #000066; color: white; width: 300px'
-}
-
-food_col = {
-        'selector': 'td col0',
-        'props': [('width', '300px')]
-}
-
-
 css = """ <head>
     <style type="text/css">
     table, th, td {
@@ -35,17 +16,16 @@ css = """ <head>
     </style>
     </head>"""
 
-
-
-
 def save_recipe(html, score):
     now = datetime.datetime.now()
     timestamp = now.strftime('%m%d%y%H%M%S%f')
-    #df.to_csv( "recipes/" + str(score) + "_" + timestamp + ".csv") 
-    # write html to file
-    text_file = open("recipes/" + str(score) + "_" + timestamp + ".html", "w")
+    recipe_file_name = str(score) + "_" + timestamp 
+    text_file = open("recipes/" + recipe_file_name + ".html", "w")
     text_file.write(html)
     text_file.close()
+    f = open('recipes/index.html', 'a')
+    f.write(f"<a href=\"{recipe_file_name}.html\">{recipe_file_name}</a><br>")
+    f.close()
 
 def highlight_column(s, col):
     return ['background-color: #90ee90' if s.name == col else '' for v in s.index]
@@ -66,7 +46,6 @@ def get_nutrient_html(df):
     html = "<table>"
     html += "<tr><th>Name</th><th>Min</th><th>Value</th><th>Max</th></tr>"
     df = df.drop(['Food Name', 'Amount (g)'], 1)
-    #print(df)
     nutrient_targets = config['nutrient_targets']
     for (columnName, columnData) in df.iteritems():
         nutrient_min = 0
@@ -92,7 +71,6 @@ def score_recipe(df):
 
     with pd.option_context('display.precision', 1):
         df_style = df.style
-        #df_style.hide_index()
         df_style.hide(axis='index')
 
     score = 0
@@ -108,6 +86,10 @@ def score_recipe(df):
                     score += 1    
 
     minimum_recipe_score = int(config['minimum_recipe_score'])
+    # print("===============   RECIPE    =================")
+    # print(df)
+    # print(f"SCORE : {str(score)}")
+    # print(f"SCORE MINIMUM : {str(minimum_recipe_score)}")
 
     if score >= minimum_recipe_score:
         ingredients = df[['Food Name',"Amount (g)","Protein (g)","Fat, total (g)","Calories"]]
@@ -115,22 +97,10 @@ def score_recipe(df):
 
         recipe_totals =  df.tail(1)
         recipe_totals_html = get_nutrient_html(recipe_totals)
-        #recipe_totals_html = recipe_totals.to_html()
-        #df = df.transpose()
-        #print(df)
-        
+        #html = css + "<center>" + ingredients_html + recipe_totals_html + "<hr><b>Raw Data</b><br>"+ df.to_html() +"/<center>"
+        html = css + "<center>" + ingredients_html + recipe_totals_html + "/<center>"
 
-        # html = df_style.format().set_table_styles([cell_hover, headers])
-        # html = html.render()
-        html = css + "<center>" + ingredients_html + recipe_totals_html + "<hr><b>Raw Data</b><br>"+ df.to_html() +"/<center>"
         if score >= minimum_recipe_score:
             save_recipe(html, score)
 
 
-# print(f"SCORE : {score}")
-# if score == 3:
-#     now = datetime.datetime.now()
-# recipe_name = now.strftime('%m%d%y%H%M%S')
-
-
-# ingredients_df.to_csv( "recipes/" + recipe_name + ".csv")
